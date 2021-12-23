@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/activity_main">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/postTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="18dp"
+            android:text="Релиз дистрибутива Manjaro Linux 21.2"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/postText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/postTitle"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginRight="18dp"
+            android:text="Состоялся релиз дистрибутива Manjaro Linux 21.2, построенного на основе Arch Linux и ориентированного на начинающих пользователей. Дистрибутив примечателен наличием упрощённого и дружественного пользователю процесса установки, поддержкой автоматического определения оборудования и установки необходимых для его работы драйверов. Manjaro поставляется в виде live-сборок с графическими окружениями KDE (2.7 ГБ), GNOME (2.6 ГБ) и Xfce (2.4 ГБ). При участии сообщества дополнительно развиваются сборки с Budgie, Cinnamon, Deepin, LXDE, LXQt, MATE и i3... "
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button"
+            style="@android:style/Widget.Material.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/postText"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:text="Читать далее ➔"
+            android:textColor="@android:color/secondary_text_light"
+            android:textColorHint="@android:color/secondary_text_dark"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
