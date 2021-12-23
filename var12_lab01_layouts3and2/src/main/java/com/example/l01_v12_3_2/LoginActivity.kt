@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import com.google.android.material.tabs.TabLayout
@@ -46,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
                     email.error = "Пользователь с таким адресом уже содержится в базе"
                     return@setOnClickListener
                 }
-                if(passwordRepeated.text.toString() !== password.text.toString()) {
+                if(password.text.toString() != passwordRepeated.text.toString()) {
                     passwordRepeated.error = "Пароли не совпадают"
                     return@setOnClickListener
                 }
