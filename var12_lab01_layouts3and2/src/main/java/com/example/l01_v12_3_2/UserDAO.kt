@@ -9,9 +9,9 @@ interface UserDAO {
     @Insert
     fun insert(user: User)
 
-    @Query("SELECT password=:password FROM User where email=:email")
-    fun checkCredentials(email: String, password: String): Boolean
+    @Query("SELECT name FROM User WHERE email=:email AND password=:password")
+    fun checkCredentials(email: String, password: String): String?
 
-    @Query("SELECT NOT EXISTS(select 1 from User where email=:email)")
+    @Query("SELECT NOT EXISTS(SELECT 1 FROM User WHERE email=:email)")
     fun isEmailUnique(email: String): Boolean
 }

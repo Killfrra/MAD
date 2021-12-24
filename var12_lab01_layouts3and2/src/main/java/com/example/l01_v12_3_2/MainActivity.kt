@@ -23,8 +23,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val sharedPref = getSharedPreferences("preferences", Context.MODE_PRIVATE)
+        userName.text = sharedPref.getString("logged in as", "Anonymous")
         logoutButton.setOnClickListener {
-            sharedPref.edit().putBoolean("logged in", false).apply()
+            sharedPref.edit().putString("logged in as", "").apply()
             startActivity(
                 Intent(this, LoginActivity::class.java)
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)

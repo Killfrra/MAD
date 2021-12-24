@@ -10,8 +10,16 @@ class LauncherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val sharedPref = getSharedPreferences("preferences", Context.MODE_PRIVATE)
-        val loggedIn = sharedPref.getBoolean("logged in", false)
+        val loggedIn = sharedPref.getString("logged in as", "")!!.isNotEmpty()
 
-        startActivity(Intent(this, if(loggedIn) MainActivity::class.java else LoginActivity::class.java))
+        startActivity(
+            Intent(
+                this,
+                if(loggedIn)
+                    MainActivity::class.java
+                else
+                    LoginActivity::class.java
+            )
+        )
     }
 }

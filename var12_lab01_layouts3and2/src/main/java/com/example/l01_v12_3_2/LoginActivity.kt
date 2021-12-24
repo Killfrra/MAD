@@ -51,23 +51,27 @@ class LoginActivity : AppCompatActivity() {
                     passwordRepeated.error = "Пароли не совпадают"
                     return@setOnClickListener
                 }
+                val nameStr = name.text.toString()
                 userDAO.insert(
                     User(
-                        name.text.toString(),
+                        nameStr,
                         emailStr,
                         password.text.toString()
                     )
                 )
+                sharedPref.edit().putString("logged in as", nameStr).apply()
             } else {
-                if(!userDAO.checkCredentials(
+                val nameStr = userDAO.checkCredentials(
                     email.text.toString(),
                     password.text.toString()
-                )) {
+                )
+                if(nameStr === null) {
                     email.error = "Пароль или логин введены неверно"
                     return@setOnClickListener
                 }
+                sharedPref.edit().putString("logged in as", nameStr).apply()
             }
-            sharedPref.edit().putBoolean("logged in", true).apply()
+
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
